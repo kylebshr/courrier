@@ -112,6 +112,11 @@ a:focus {
 .navbar-custom .navbar-brand:focus {
   outline: none;
 }
+
+.navbar-brand {
+  margin-top: 4px;
+}
+
 .navbar-custom a {
   color: black;
 }
@@ -431,8 +436,8 @@ img::-moz-selection {
 }
 
 .logo {
-	margin-top: -7px;
-	height: 35px;
+	margin-top: -13px;
+	height: 25px;
 }
 
 .wide-photo {
