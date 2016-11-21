@@ -1,3 +1,4 @@
+// Assigning modules to local variables
 var gulp = require('gulp');
 var less = require('gulp-less');
 var browserSync = require('browser-sync').create();
@@ -16,7 +17,10 @@ var banner = ['/*!\n',
     ''
 ].join('');
 
-// Compile LESS files from /less into /css
+// Default task
+gulp.task('default', ['less', 'minify-css', 'minify-js', 'copy']);
+
+// Less task to compile the less files and add the banner
 gulp.task('less', function() {
     return gulp.src('less/grayscale.less')
         .pipe(less())
@@ -27,8 +31,8 @@ gulp.task('less', function() {
         }))
 });
 
-// Minify compiled CSS
-gulp.task('minify-css', ['less'], function() {
+// Minify CSS
+gulp.task('minify-css', function() {
     return gulp.src('css/grayscale.css')
         .pipe(cleanCSS({ compatibility: 'ie8' }))
         .pipe(rename({ suffix: '.min' }))
@@ -50,15 +54,21 @@ gulp.task('minify-js', function() {
         }))
 });
 
-// Copy vendor libraries from /node_modules into /vendor
-gulp.task('copy', function() {
-    gulp.src(['node_modules/bootstrap/dist/**/*', '!**/npm.js', '!**/bootstrap-theme.*', '!**/*.map'])
+// Copy Bootstrap core files from node_modules to vendor directory
+gulp.task('bootstrap', function() {
+    return gulp.src(['node_modules/bootstrap/dist/**/*', '!**/npm.js', '!**/bootstrap-theme.*', '!**/*.map'])
         .pipe(gulp.dest('vendor/bootstrap'))
+})
 
-    gulp.src(['node_modules/jquery/dist/jquery.js', 'node_modules/jquery/dist/jquery.min.js'])
+// Copy jQuery core files from node_modules to vendor directory
+gulp.task('jquery', function() {
+    return gulp.src(['node_modules/jquery/dist/jquery.js', 'node_modules/jquery/dist/jquery.min.js'])
         .pipe(gulp.dest('vendor/jquery'))
+})
 
-    gulp.src([
+// Copy Font Awesome core files from node_modules to vendor directory
+gulp.task('fontawesome', function() {
+    return gulp.src([
             'node_modules/font-awesome/**',
             '!node_modules/font-awesome/**/*.map',
             '!node_modules/font-awesome/.npmignore',
@@ -69,8 +79,8 @@ gulp.task('copy', function() {
         .pipe(gulp.dest('vendor/font-awesome'))
 })
 
-// Run everything
-gulp.task('default', ['less', 'minify-css', 'minify-js', 'copy']);
+// Copy all dependencies from node_modules
+gulp.task('copy', ['bootstrap', 'jquery', 'fontawesome']);
 
 // Configure the browserSync task
 gulp.task('browserSync', function() {
@@ -81,7 +91,7 @@ gulp.task('browserSync', function() {
     })
 })
 
-// Dev task with browserSync
+// Watch Task that compiles LESS and watches for HTML or JS changes and reloads with browserSync
 gulp.task('dev', ['browserSync', 'less', 'minify-css', 'minify-js'], function() {
     gulp.watch('less/*.less', ['less']);
     gulp.watch('css/*.css', ['minify-css']);
