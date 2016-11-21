@@ -204,8 +204,9 @@ a:focus {
   height: auto;
   padding: 100px 0;
   text-align: center;
-  color: black;
-  background-color: white;
+  color: white;
+  background: url(../img/intro-bg.jpg) no-repeat bottom center scroll;
+  background-color: black;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -219,6 +220,9 @@ a:focus {
 }
 .intro .intro-body .brand-heading {
   font-size: 44px;
+}
+.brand-heading {
+  color: white;
 }
 .intro .intro-body .intro-text {
   font-size: 18px;
