@@ -439,6 +439,14 @@ img::-moz-selection {
   color: #E45A3B;
 }
 
+.white {
+  color: white;
+}
+
+.contrast_box {
+  background:rgba(77,77,77,0.5);
+}
+
 .logo {
 	margin-top: -13px;
 	height: 25px;
