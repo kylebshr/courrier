@@ -136,11 +136,7 @@ a:focus {
 
 @media(min-width: 768px) {
   .nav-line {
-	height: 28px;
-	border-left: 1px solid #cad2e0;
-	float: left;
-	display: inherit;
-	margin-top: 11px;
+	display: none;
   }
 }
 
@@ -717,12 +713,44 @@ td.right {
 .email-input {
   max-width: 450px;
   margin: 0 auto;
+ }
+
+input {
+  border: 1px solid white !important;
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  color: white !important;
 }
 
 .btn-sign-up {
-
+  border: 1px solid white !important;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  text-transform: none;
+  font-family: 'Lora';
 }
 
-.btn-sign-up {
+.btn-sign-up:hover,
+.btn-sign-up:focus {
+  background-color: white;
+}
 
+.btn-sign-up:active {
+  opacity: 0.8;
+}
+
+.btn-circle:hover {
+  background-color: transparent;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: white;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: white;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: white;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
 }
