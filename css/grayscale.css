@@ -443,9 +443,9 @@ img::-moz-selection {
   color: white;
 }
 
-.contrast_box {
+/*.contrast_box {
   background:rgba(77,77,77,0.5);
-}
+}*/
 
 .logo {
 	margin-top: -13px;
