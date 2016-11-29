@@ -61,10 +61,23 @@
             </div>
             <!-- /.container -->
         </nav>
+
         <!-- Intro Header -->
         <header class="intro">
             <div class="intro-body">
                 <div class="container">
+                  <div id="success" style="display: none;">
+                    <div class="alert alert-success">
+                      Success! You have been enrolled in the mailing list.
+                    </div>
+                  </div>
+
+                  <div id="failure" style="display: none;">
+                    <div class="alert alert-danger">
+                      Error! the email you input was invalid.
+                    </div>
+                  </div>
+
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2">
                               <h1 class="brand-heading"> Knox<span class="light">beers</span></h1>
@@ -72,9 +85,9 @@
                               <p class="intro-text">Do you like beer? It's our passion. Sign up for a weekly newsletter about beer tasting, local breweries and weekly beer picks!</p>
                             
                             <div class="input-group email-input input-group-lg">
-                                <input type="text" class="form-control email-form" placeholder="jane@beer.com">
+                                <input type="text" id="email" class="form-control email-form" placeholder="jane@beer.com">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-sign-up" type="button">Subscribe</button>
+                                    <button class="btn btn-sign-up subscribe" type="button" onclick="validate_and_alert()">Subscribe</button>
                                 </span>
                             </div><!-- /input-group -->
 
@@ -95,6 +108,7 @@
                         <p>We are group of friends from Knoxville brought together by our love of a good beer.</p>
                         <p>We love to meet new friends who also share our passion.</p>
                         <p>We meet twice a month and would love you to join the celebration of beer!</p>
+                        <p></p>
                     </div>
                 </div>
           </section>
@@ -114,6 +128,8 @@
 
         <!-- jQuery -->
         <script src="vendor/jquery/jquery.js"></script>
+
+
         <!-- Bootstrap Core JavaScript -->
         <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
         <!-- Plugin JavaScript -->
@@ -122,9 +138,9 @@
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA"></script>
         <!-- Theme JavaScript -->
         <script src="js/grayscale.js"></script>
+        <script src="js/register_alert.js"></script>
 
         <script>
-
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -132,15 +148,12 @@
 
             ga('create', 'UA-83731333-1', 'auto');
             ga('send', 'pageview');
-
         </script>
-
 
         <script type="text/javascript">
             $(function () {
-                $('[data-toggle="tooltip"]').tooltip()
+                $('[data-toggle="tooltip"]').tooltip();
             })
         </script>
-
     </body>
 </html>
